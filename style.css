@@ -59,6 +59,9 @@ main {
 .sidebar-img {
     width: 200px;
 }
+img {
+  border-radius: 50%;
+}
 
 .content {
     flex: 1;
@@ -70,11 +73,7 @@ main {
     border: 4px rgb(44, 149, 197) ridge;
     padding: 8px;
     margin-bottom: 20px;
-    {
-  border-block-style: solid;
-  border-block-color: pink;}
 }
-
 h2, h3 {
     margin: 0px;
 }
