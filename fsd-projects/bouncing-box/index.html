@@ -69,8 +69,10 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
+        newPositionX(0);
 
 
+        variableName += 10; // Increases variableName by 10
 
 
 
@@ -80,10 +82,8 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-
-        
-
-          
+        moveBoxTo(200); // Moves box to x-position 200
+        moveBoxTo(100); // Moves box to right edge  
         }
 
         /**
@@ -93,16 +93,12 @@
          * - increase the speed
          * - move the box to the left side of the screen.
          */
-        function handleBoxClick() {
+         function handleBoxClick() {
+  changeBoxText(points); // This sets the box text to the current score
+}
 
-
-
-
-        }
-
-
-        
-      })();
+        }      
+      )();
     </script>
   </body>
 </html>
