@@ -8,7 +8,7 @@
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: rgb(166, 10, 197);
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -51,10 +51,10 @@
         // Every 50 milliseconds, call the update Function (see below)
         setInterval(update, 50);
 
+
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
 
-        // moves the Box to a new position on the screen along the X-Axis
         function moveBoxTo(newPositionX) {
           box.css("left", newPositionX);
         }
@@ -69,11 +69,10 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-        newPositionX(0);
-
-
-        variableName += 10; // Increases variableName by 10
-
+        // TODO 2 - Variable declarations
+        var position = 0;
+        var points = 0;
+        var speed = 10;
 
 
         /**
@@ -81,24 +80,27 @@
          * Each time it is called, it should move the Box to a new location.
          * If the box drifts off the screen, turn it around!
          */
-        function update() {
-        moveBoxTo(200); // Moves box to x-position 200
-        moveBoxTo(100); // Moves box to right edge  
-        }
+  function update() {
+    position += speed;
+    if (position + box.width() > boardWidth || position < 0) {
+      speed = -speed;
+    }
+    moveBoxTo(position);
+    changeBoxText(points);
+  }
 
-        /**
-         * This Function will be called each time the box is clicked.
-         * Each time it is called, it should perform each of the following actions:
-         * - increase the points total
-         * - increase the speed
-         * - move the box to the left side of the screen.
-         */
-         function handleBoxClick() {
-  changeBoxText(points); // This sets the box text to the current score
-}
+  /**
+   * This Function will be called each time the box is clicked.
+   * Each time it is called, it should increase points and speed
+   */
+  function handleBoxClick() {
+    points += 1;
+    speed += 3;
+    position = 0;
+    changeBoxText(points); // This sets the box text to the current score
+  }
 
-        }      
-      )();
+      })();
     </script>
   </body>
 </html>
